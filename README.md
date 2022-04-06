@@ -1,24 +1,59 @@
-# README
+# HomeAPI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+OO대학교 전자공학과 전자공학설계(캡스톤)과목에서 사용하기 위한 어플리케이션입니다.
 
-Things you may want to cover:
+이 어플리케이션은 스마트폰 어플리케이션과 아두이노 디바이스를 서로 연동하기 위한 API 서버에 해당합니다.
 
-* Ruby version
+```plaintext
++-----+   +-------------+   +---------+
+| App +---+ Rails(this) +---+ Arduino |
++-----+   +-------------+   +---------+
+```
 
-* System dependencies
+* 스마트폰 어플리케이션은 [HomeAPP](https://github.com/Ch1keen/homeapp)에서 확인해주시기 바랍니다.
 
-* Configuration
+## Feature
 
-* Database creation
+* 온도
 
-* Database initialization
+* 습도
 
-* How to run the test suite
+* 미세먼지 농도
 
-* Services (job queues, cache servers, search engines, etc.)
+  * PM 1.0
 
-* Deployment instructions
+  * PM 2.5
 
-* ...
+  * PM 10.0
+
+* 가스
+
+* 조도
+
+* (영상)
+
+## 모델
+
+* User
+
+  * has_many: status
+
+  * (인증 관련)
+
+* Status
+
+  * user_id (belongs to User)
+
+  * temperature (°C)
+
+  * humidity (%)
+
+  * pm1p0 (μg/m^3)
+
+  * pm2p5 (μg/m^3)
+
+  * pm10 (μg/m^3)
+
+  * gas
+
+  * brightness
