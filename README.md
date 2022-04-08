@@ -54,9 +54,9 @@ OO대학교 전자공학과 전자공학설계(캡스톤)과목에서 사용하�
 
   * pm10 (μg/m^3)
 
-  * gas
+  * gas (ppm)
 
   * brightness
 
-## 컨트롤러
+## API Specification
 
