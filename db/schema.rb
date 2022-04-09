@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_04_06_015903) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
