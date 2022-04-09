@@ -214,9 +214,10 @@ DEPENDENCIES
   jb
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
-  rails (~> 6.1.4, >= 6.1.4.1)
+  rails (~> 6.1.4, >= 6.1.4.7)
   sass-rails (>= 6)
   selenium-webdriver
   spring
@@ -228,7 +229,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 3.0.3p157
 
 BUNDLED WITH
-   2.1.2
+   2.2.32
