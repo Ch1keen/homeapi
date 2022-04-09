@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  rails:
+    restart: always
+    image: ruby:3.0.3
+    container_name: rails
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - TZ=Asia/Seoul
+      - DATABASE_HOST=postgresql
+    build: .
+    command: sh -c "rm -f tmp/pids/server.pid && \
+                    bundle exec rails s -p 3000 -b '0.0.0.0'"
+    depends_on:
+      - postgresql
+
+  postgresql:
+    restart: always
+    image: postgres:14.1-alpine
+    container_name: postgresql
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - TZ=Asia/Seoul
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
