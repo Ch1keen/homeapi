@@ -6,7 +6,7 @@ module Api
       render 'index'
     end
 
-    def show
+    def create
     end
   end
 end

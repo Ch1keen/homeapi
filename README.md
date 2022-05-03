@@ -38,25 +38,38 @@ OO대학교 전자공학과 전자공학설계(캡스톤)과목에서 사용하�
 
   * has_many: status
 
-  * (인증 관련)
+  * serial_number (String)
 
 * Status
 
   * user_id (belongs to User)
 
-  * temperature (°C)
+  * temperature (°C; float)
 
-  * humidity (%)
+  * humidity (%; float)
 
-  * pm1p0 (μg/m^3)
+  * pm1p0 (μg/m^3; float)
 
-  * pm2p5 (μg/m^3)
+  * pm2p5 (μg/m^3; float)
 
-  * pm10 (μg/m^3)
+  * pm10 (μg/m^3; float)
 
-  * gas (ppm)
+  * gas (ppm; float)
 
-  * brightness
+  * brightness (on/off; boolean)
+
+  * fan (역방향/off/정방향; int)
+
+  * window (on/off; boolean)
 
 ## API Specification
 
+* `POST /api/statuses`
+
+  ```json
+  {'status': 
+    {'temperature': 15.0,
+     'serial_number': 'abc',
+     'humidity', 22.0}
+  }
+  ```

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_015903) do
+ActiveRecord::Schema.define(version: 2022_05_03_063620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,19 +18,22 @@ ActiveRecord::Schema.define(version: 2022_04_06_015903) do
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "serial_number"
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "temperature"
-    t.integer "humidity"
-    t.integer "pm1p0"
-    t.integer "pm2p5"
-    t.integer "pm10"
-    t.integer "gas"
+    t.float "temperature"
+    t.float "humidity"
+    t.float "pm1p0"
+    t.float "pm2p5"
+    t.float "pm10"
+    t.float "gas"
     t.integer "brightness"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "home_id"
+    t.boolean "fan"
+    t.boolean "window"
   end
 
 end
