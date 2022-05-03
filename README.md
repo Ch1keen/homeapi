@@ -66,7 +66,7 @@ OO대학교 전자공학과 전자공학설계(캡스톤)과목에서 사용하�
 
 * `POST /api/statuses`
 
-  ```json
+  ```javascript
   {'status': 
     {'temperature': 15.0,
      'serial_number': 'abc',
