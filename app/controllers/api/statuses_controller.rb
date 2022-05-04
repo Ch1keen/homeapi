@@ -7,8 +7,8 @@ module Api
     end
 
     def create
-      @status = Status.create(log_params)
-      @status.home = Home.find_by(serial_number: params['serial_number'])
+      @status = Status.create(status_params)
+      @status.home = Home.find_by(serial_number: params[:serial_number])
       @status.save
 
       render json: { msg: true }
