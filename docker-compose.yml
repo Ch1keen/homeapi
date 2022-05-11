@@ -5,6 +5,8 @@ services:
     restart: always
     image: ruby:3.0.3
     container_name: rails
+    stdin_open: true
+    tty: true
     ports:
       - 3000:3000
     working_dir: /app
