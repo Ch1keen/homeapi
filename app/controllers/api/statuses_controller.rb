@@ -3,12 +3,14 @@
 module Api
   class StatusesController < ApplicationController
     def index
-      render json: { msg: true }
+      @statuses = Status.all
+
+      render 'index'
     end
 
     def create
       @status = Status.create(status_params)
-      @status.home = Home.find_by(serial_number: params[:serial_number])
+      @status.home = Home.find_by(serial_number: serial_number_param[:serial_number])
       @status.save
 
       render json: { msg: true }
@@ -18,6 +20,10 @@ module Api
 
     def status_params
       params.require(:status).permit(:humidity, :temperature, :pm1p0, :pm2p5, :pm10, :gas, :brightness, :fan, :window)
+    end
+
+    def serial_number_param
+      params.require(:status).permit(:serial_number)
     end
   end
 end
