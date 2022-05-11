@@ -1,0 +1,32 @@
+<h1>Statuses</h1>
+
+<table>
+  <tr>
+    <td>Temperature</td>
+    <td>Humidity</td>
+    <td>PM 1.0</td>
+    <td>PM 2.5</td>
+    <td>PM 10</td>
+    <td>Gas</td>
+    <td>조도</td>
+    <td>팬 동작 여부</td>
+    <td>창문 개폐 여부</td>
+    <td>시리얼 넘버</td>
+    <td>생성 시간</td>
+  </tr>
+  <% @statuses.each do |status| %>
+    <tr>
+      <td><%= status.temperature %></td>
+      <td><%= status.humidity %></td>
+      <td><%= status.pm1p0 %></td>
+      <td><%= status.pm2p5 %></td>
+      <td><%= status.pm10 %></td>
+      <td><%= status.gas %></td>
+      <td><%= status.brightness %></td>
+      <td><%= status.fan %></td>
+      <td><%= status.window %></td>
+      <td><%= status.home.serial_number %></td>
+      <td><%= status.created_at %></td>
+    </tr>
+  <% end%>
+</table>
