@@ -1,0 +1,13 @@
+json = {
+  humidity: @humidity,
+  temperature: @temperature,
+  pm1p0: @pm1p0,
+  pm2p5: @pm2p5,
+  pm10: @pm10,
+  gas: @gas,
+  brightness: @brightness,
+  fan: @fan,
+  window: @window,
+}
+
+json
