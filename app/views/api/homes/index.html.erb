@@ -1,14 +1,18 @@
-<h1>Homes</h1>
+<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 
-<table>
-  <tr>
-    <td>시리얼 넘버</td>
-    <td>생성 시간</td>
-  </tr>
-  <% @homes.each do |home| %>
-    <tr>  
-      <td><%= home.serial_number %></td>
-      <td><%= home.created_at %></td>
+<main class="container">
+  <h1>Homes</h1>
+  
+  <table>
+    <tr>
+      <td>시리얼 넘버</td>
+      <td>생성 시간</td>
     </tr>
-  <% end%>
-</table>
+    <% @homes.each do |home| %>
+      <tr>  
+        <td><%= home.serial_number %></td>
+        <td><%= home.created_at %></td>
+      </tr>
+    <% end%>
+  </table>
+</main>
