@@ -3,7 +3,7 @@
 module Api
   class StatusesController < ApplicationController
     def index
-      @statuses = Status.all
+      @statuses = Status.all.order(created_at: :desc)
 
       render 'index'
     end

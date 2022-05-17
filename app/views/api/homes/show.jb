@@ -8,6 +8,7 @@ json = {
   brightness: @brightness,
   fan: @fan,
   window: @window,
+  created_at: @created_at,
 }
 
 json

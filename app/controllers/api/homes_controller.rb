@@ -3,7 +3,7 @@
 module Api
   class HomesController < ApplicationController
     def index
-      @homes = Home.all
+      @homes = Home.all.order(created_at: :desc)
       render 'index'
     end
 
@@ -23,6 +23,7 @@ module Api
       @brightness = @statuses.map(&:brightness).last
       @fan = @statuses.map(&:fan).last
       @window = @statuses.map(&:window).last
+      @created_at = @statuses.last.created_at
 
       render 'show'
     end
