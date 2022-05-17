@@ -9,6 +9,7 @@ module Api
 
     def create
       Home.create(home_params)
+      # TO-DO: 중복 등록 방지
       render json: {msg: true}
     end
 
