@@ -23,7 +23,7 @@ module Api
       @brightness = @statuses.map(&:brightness).last
       @fan = @statuses.map(&:fan).last
       @window = @statuses.map(&:window).last
-      @created_at = @statuses.last.created_at
+      @times_ago = times_ago(@statuses.last.created_at)
 
       render 'show'
     end
@@ -32,6 +32,20 @@ module Api
 
     def home_params
       params.require(:home).permit(:serial_number)
+    end
+
+    def times_ago(created_at)
+      seconds_ago = Time.now - created_at
+       
+      if seconds_ago < 60
+        return seconds_ago.to_i.to_s + "초 전"
+      elsif seconds_ago >= 60 && seconds_ago < 60*60
+        minutes_ago = seconds_ago/60
+        return minutes_ago.to_i.to_s + "분 전"
+      elsif seconds_ago < 60*60
+        hours_ago = hours_ago / 3600
+        return hours_ago.to_i.to_s + "시간 전"
+      end
     end
   end
 end
