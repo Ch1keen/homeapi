@@ -42,9 +42,11 @@ module Api
       elsif seconds_ago >= 60 && seconds_ago < 60*60
         minutes_ago = seconds_ago/60
         return minutes_ago.to_i.to_s + "분 전"
-      elsif seconds_ago < 60*60
-        hours_ago = hours_ago / 3600
+      elsif seconds_ago >= 60*60 && seconds_ago < 60*60*24
+        hours_ago = seconds_ago/3600
         return hours_ago.to_i.to_s + "시간 전"
+      else
+        return created_at
       end
     end
   end
