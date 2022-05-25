@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_063620) do
+ActiveRecord::Schema.define(version: 2022_05_25_010436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_063620) do
     t.integer "home_id"
     t.boolean "fan"
     t.boolean "window"
+    t.integer "fan_force"
   end
 
 end
