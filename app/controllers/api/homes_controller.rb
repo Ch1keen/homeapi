@@ -14,18 +14,25 @@ module Api
 
     def show
       @statuses = Home.find(params[:id]).statuses
-      @humidity = @statuses.map(&:humidity).last
-      @temperature = @statuses.map(&:temperature).last
-      @pm1p0 = @statuses.map(&:pm1p0).last
-      @pm2p5 = @statuses.map(&:pm2p5).last
-      @pm10 = @statuses.map(&:pm10).last
-      @gas = @statuses.map(&:gas).last
-      @brightness = @statuses.map(&:brightness).last
-      @fan = @statuses.map(&:fan).last
-      @window = @statuses.map(&:window).last
-      @times_ago = times_ago(@statuses.last.created_at)
 
-      render 'show'
+      if params[:detail].nil?
+        @humidity = @statuses.map(&:humidity).last
+        @temperature = @statuses.map(&:temperature).last
+        @pm1p0 = @statuses.map(&:pm1p0).last
+        @pm2p5 = @statuses.map(&:pm2p5).last
+        @pm10 = @statuses.map(&:pm10).last
+        @gas = @statuses.map(&:gas).last
+        @brightness = @statuses.map(&:brightness).last
+        @fan = @statuses.map(&:fan).last
+        @fan_force = @statuses.map(&:fan_force).last
+        @window = @statuses.map(&:window).last
+        @times_ago = times_ago(@statuses.last.created_at)
+
+        render 'show'
+      else
+        @data = @statuses.map(&params[:detail].to_sym)
+        render 'detail'
+      end
     end
 
     private
