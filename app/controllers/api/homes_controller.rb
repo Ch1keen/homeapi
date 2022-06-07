@@ -31,14 +31,21 @@ module Api
         render 'show'
       else
         @data = @statuses.map(&params[:detail].to_sym)
+        @time = @statuses.map(&:created_at)
         render 'detail'
       end
+    end
+
+    def update
+      @status = Status.create(fan_force: home_params[:fan_force])
+      @status.home = Home.find_by(serial_number: home_params[:serial_number])
+      @status.save
     end
 
     private
 
     def home_params
-      params.require(:home).permit(:serial_number)
+      params.require(:home).permit(:serial_number, :fan_force)
     end
 
     def times_ago(created_at)
@@ -53,7 +60,7 @@ module Api
         hours_ago = seconds_ago/3600
         return hours_ago.to_i.to_s + "시간 전"
       else
-        return created_at
+        return created_at.strftime('%Y년 %m월 %d일 %H시 %M분')
       end
     end
   end
